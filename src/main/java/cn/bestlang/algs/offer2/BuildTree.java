@@ -1,18 +1,8 @@
 package cn.bestlang.algs.offer2;
 
-import java.util.Arrays;
+import cn.bestlang.algs.offer2.common.TreeNode;
 
 public class BuildTree {
-
-    public class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) {
-            val = x;
-        }
-    }
 
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         return buildTree(preorder, 0, preorder.length - 1, inorder, 0, inorder. length - 1);

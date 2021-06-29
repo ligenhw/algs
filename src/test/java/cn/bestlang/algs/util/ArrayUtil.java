@@ -6,7 +6,7 @@ public class ArrayUtil {
 
     @Test
     public void convertToArray() {
-        String s = "[[\"A\",\"B\",\"C\",\"E\"],[\"S\",\"F\",\"C\",\"S\"],[\"A\",\"D\",\"E\",\"E\"]]";
+        String s = "[[1,2,3,4],[5,6,7,8],[9,10,11,12]]";
         s = s.replace("[", "{");
         s = s.replace("]", "}");
         s = s.replace("\n", "");
