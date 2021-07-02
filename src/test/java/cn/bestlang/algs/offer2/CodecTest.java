@@ -13,13 +13,15 @@ class CodecTest {
     void serialize() {
         TreeNode root = new TreeNode(1);
         TreeNode node1 = new TreeNode(2);
+        TreeNode node2 = new TreeNode(3);
         root.right = node1;
+        node1.right = node2;
         System.out.println(new Codec().serialize(root));
     }
 
     @Test
     void deserialize() {
-        String data = "[1, 2, 3, null, null, 4, 5]";
+        String data = "[1,2,3,null,null,4,5]";
         TreeNode treeNode = new Codec().deserialize(data);
         assertEquals(data, new Codec().serialize(treeNode));
     }
