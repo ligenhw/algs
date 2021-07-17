@@ -1,6 +1,6 @@
 package cn.bestlang.algs.offer2;
 
-import cn.bestlang.algs.offer2.common.TreeNode;
+import cn.bestlang.algs.common.TreeNode;
 
 public class IsBalanced {
     public boolean isBalanced(TreeNode root) {

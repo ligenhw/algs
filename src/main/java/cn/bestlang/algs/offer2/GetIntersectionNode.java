@@ -1,6 +1,6 @@
 package cn.bestlang.algs.offer2;
 
-import cn.bestlang.algs.offer2.common.ListNode;
+import cn.bestlang.algs.common.ListNode;
 
 import java.util.HashSet;
 import java.util.Set;

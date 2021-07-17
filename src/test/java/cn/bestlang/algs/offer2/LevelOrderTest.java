@@ -1,11 +1,9 @@
 package cn.bestlang.algs.offer2;
 
-import cn.bestlang.algs.offer2.common.TreeNode;
+import cn.bestlang.algs.common.TreeNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class LevelOrderTest {
 

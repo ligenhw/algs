@@ -1,10 +1,10 @@
-package cn.bestlang.algs.offer2.common;
+package cn.bestlang.algs.common;
 
 public class ListNode {
     public int val;
     public ListNode next;
 
-    ListNode(int x) {
+    public ListNode(int x) {
         val = x;
     }
 }

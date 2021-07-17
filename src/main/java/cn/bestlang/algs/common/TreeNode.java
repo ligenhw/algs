@@ -1,4 +1,4 @@
-package cn.bestlang.algs.offer2.common;
+package cn.bestlang.algs.common;
 
 public class TreeNode {
     public int val;
