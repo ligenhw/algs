@@ -5,10 +5,14 @@ import java.util.Queue;
 
 public class PrintTree {
 
-    private static class Node {
-        private int val;
-        private Node left;
-        private Node right;
+    static class Node {
+        int val;
+        Node left;
+        Node right;
+
+        public Node(int val) {
+            this.val = val;
+        }
     }
 
     public void printTree(Node root) {
@@ -20,14 +24,18 @@ public class PrintTree {
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            System.out.print(node.val + " ");
-            if (node.left != null) {
-                queue.add(node.left);
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                Node node = queue.poll();
+                System.out.print(node.val + " ");
+                if (node.left != null) {
+                    queue.add(node.left);
+                }
+                if (node.right != null) {
+                    queue.add(node.right);
+                }
             }
-            if (node.right != null) {
-                queue.add(node.right);
-            }
+            System.out.println();
         }
     }
 }
