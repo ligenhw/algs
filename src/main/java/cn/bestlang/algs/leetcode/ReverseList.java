@@ -9,44 +9,30 @@ public class ReverseList {
     }
 
     private ListNode reverseListIteration(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-
+        ListNode pre = null;
         ListNode current = head;
-        ListNode next = current.next;
-        head.next = null;
 
-        while (next != null) {
-            ListNode t = next.next;
-            next.next = current;
+        while (current != null) {
+            ListNode next = current.next;
+            current.next = pre;
 
+            pre = current;
             current = next;
-            next = t;
         }
-        return current;
+
+        return pre;
     }
 
-    private ListNode reverseListRecursion(ListNode head) {
-        ListNode recursion = recursion(head);
-        if (head != null) {
-            head.next = null;
+    private ListNode reverseListRecursion(ListNode node) {
+        if (node == null || node.next == null) {
+            return node;
         }
+
+        ListNode recursion = reverseListRecursion(node.next);
+        node.next.next = node;
+        node.next = null;
+
         return recursion;
     }
 
-    private ListNode recursion(ListNode node) {
-        if (node == null) {
-            return null;
-        }
-
-        ListNode next = node.next;
-        if (next != null) {
-            ListNode recursion = recursion(next);
-            next.next = node;
-            return recursion;
-        } else {
-            return node;
-        }
-    }
 }
