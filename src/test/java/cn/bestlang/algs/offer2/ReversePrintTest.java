@@ -1,5 +1,6 @@
 package cn.bestlang.algs.offer2;
 
+import cn.bestlang.algs.common.ListNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -8,11 +9,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ReversePrintTest {
 
-    private ReversePrint.ListNode toListNode(int[] head) {
-        ReversePrint.ListNode root = new ReversePrint.ListNode(head[0]);
-        ReversePrint.ListNode node = root;
+    private ListNode toListNode(int[] head) {
+        ListNode root = new ListNode(head[0]);
+        ListNode node = root;
         for (int i = 1; i < head.length; i++) {
-            node.next = new ReversePrint.ListNode(head[i]);
+            node.next = new ListNode(head[i]);
             node = node.next;
         }
 

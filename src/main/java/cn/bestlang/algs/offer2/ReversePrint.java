@@ -1,15 +1,8 @@
 package cn.bestlang.algs.offer2;
 
+import cn.bestlang.algs.common.ListNode;
+
 public class ReversePrint {
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public int[] reversePrint(ListNode head) {
         ListNode node = head;
