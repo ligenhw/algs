@@ -30,4 +30,19 @@ class LongestValidParenthesesTest {
         assertEquals(expected, new LongestValidParentheses().longestValidParentheses(s));
     }
 
+    @Test
+    void longestValidParentheses4() {
+        String s = "()(())";
+        int expected = 6;
+
+        assertEquals(expected, new LongestValidParentheses().longestValidParentheses(s));
+    }
+
+    @Test
+    void longestValidParentheses5() {
+        String s = "(()(((())";
+        int expected = 2;
+
+        assertEquals(expected, new LongestValidParentheses().longestValidParentheses(s));
+    }
 }
