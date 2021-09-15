@@ -2,7 +2,6 @@ package cn.bestlang.algs.offer2s;
 
 public class Divide {
     public int divide(int a, int b) {
-        long maxInt = Integer.MAX_VALUE;
         boolean positive = true;
         long la = a;
         if (a < 0) {
@@ -16,25 +15,45 @@ public class Divide {
         }
 
         long result = 0;
-        if (lb == 1) {
-            if (positive && la > Integer.MAX_VALUE) {
-                return Integer.MAX_VALUE;
-            } else if (!positive && la > maxInt + 1) {
-                return Integer.MIN_VALUE;
-            }
-            return (int) (positive ? la : -la);
-        }
-
         while (la >= lb) {
-            la -= lb;
-            if (positive && result == Integer.MAX_VALUE) {
+            DivideData data = divideRecur(la, lb);
+
+            la = data.left;
+            result += data.sub;
+            if (positive && result >= Integer.MAX_VALUE) {
                 return Integer.MAX_VALUE;
             } else if (!positive && result == Integer.MAX_VALUE + 1) {
                 return Integer.MAX_VALUE;
             }
-            result++;
+            if (data.left == 0) {
+                break;
+            }
         }
 
         return (int) (positive ? result : -result);
+    }
+
+    private DivideData divideRecur(long la, long lb) {
+        if (la < lb) {
+            return null;
+        }
+
+        long current = lb;
+        long k = 1;
+        while (la >= current * 2) {
+            current *= 2;
+            k *= 2;
+        }
+
+        DivideData data = new DivideData();
+        data.sub = k;
+        data.left = la - current;
+
+        return data;
+    }
+
+    private static class DivideData {
+        long sub;
+        long left;
     }
 }
