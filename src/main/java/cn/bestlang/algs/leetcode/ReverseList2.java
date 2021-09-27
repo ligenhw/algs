@@ -4,7 +4,7 @@ import cn.bestlang.algs.common.ListNode;
 
 public class ReverseList2 {
     public ListNode reverseList(ListNode head) {
-        return reverseListIteration(head);
+        return reverseListRecur(head);
     }
 
     public ListNode reverseListIteration(ListNode head) {
@@ -22,12 +22,13 @@ public class ReverseList2 {
     }
 
     public ListNode reverseListRecur(ListNode node) {
-        if (node.next == null) {
+        if (node == null || node.next == null) {
             return node;
         }
 
         ListNode next = reverseListRecur(node.next);
-        next.next = node;
-        return node;
+        node.next.next = node;
+        node.next = null;
+        return next;
     }
 }
