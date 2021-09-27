@@ -5,11 +5,10 @@ public class Exist {
         int m = board.length;
         int n = board[0].length;
         boolean[][] visited = new boolean[m][n];
-        StringBuilder path = new StringBuilder();
 
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                if (recur(board, i, j, visited, path)) {
+                if (recur(board, i, j, visited, word, 0)) {
                     return true;
                 }
             }
@@ -18,23 +17,23 @@ public class Exist {
         return false;
     }
 
-    private boolean recur(char[][] board, int i, int j, boolean[][] visited, StringBuilder path) {
-        if (i < 0 || i > board.length || j < 0 || j > board[0].length || visited[i][j]) {
+    private boolean recur(char[][] board, int i, int j, boolean[][] visited, String word, int index) {
+        if (index == word.length()) {
+            return true;
+        }
+
+        if (i < 0 || i > board.length - 1 || j < 0 || j > board[0].length - 1 || visited[i][j] || board[i][j] != word.charAt(index)) {
             return false;
         }
 
         visited[i][j] = true;
-        path.append(board[i][j]);
-
-        boolean result = recur(board, i - 1, j, visited, path)
-                || recur(board, i + 1, j, visited, path)
-                || recur(board, i, j - 1, visited, path)
-                || recur(board, i, j + 1, visited, path);
+        boolean result = recur(board, i - 1, j, visited, word, index + 1)
+                || recur(board, i + 1, j, visited, word, index + 1)
+                || recur(board, i, j - 1, visited, word, index + 1)
+                || recur(board, i, j + 1, visited, word, index + 1);
 
         visited[i][j] = false;
-        path.deleteCharAt(path.length() - 1);
         return result;
     }
-
 
 }
